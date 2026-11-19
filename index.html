@@ -10,6 +10,13 @@
   <meta property="og:title" content="GlyphAtlas: Disentangling Stroke Detail from Layout for Scene Text Synthesis">
   <meta property="og:description" content="Detailed glyph references, explicit regional correspondence, and multilingual scene text synthesis.">
   <meta property="og:image" content="assets/teaser.png">
+  <meta name="citation_title" content="GlyphAtlas: Disentangling Stroke Detail from Layout for Scene Text Synthesis">
+  <meta name="citation_author" content="Luozheng Qin">
+  <meta name="citation_author" content="Changhai Zhou">
+  <meta name="citation_author" content="Yiyi Zhou">
+  <meta name="citation_publication_date" content="2026/11/15">
+  <meta name="citation_arxiv_id" content="2611.20192">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2611.20192">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
@@ -17,7 +24,10 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
+    "@type": "ScholarlyArticle",
+    "url": "https://arxiv.org/abs/2611.20192",
+    "sameAs": "https://doi.org/10.48550/arXiv.2611.20192",
+    "datePublished": "2026-11-15",
     "name": "GlyphAtlas: Disentangling Stroke Detail from Layout for Scene Text Synthesis",
     "author": [
       {"@type": "Person", "name": "Luozheng Qin", "affiliation": {"@type": "CollegeOrUniversity", "name": "Xiamen University"}},
@@ -37,10 +47,11 @@
     <p class="authors" aria-label="Authors"><span aria-describedby="affiliation-xiamen">Luozheng Qin<sup>1</sup></span><span aria-describedby="affiliation-fudan">Changhai Zhou<sup>2</sup></span><span aria-describedby="affiliation-xiamen">Yiyi Zhou<sup>1</sup></span></p>
     <p class="affiliations" aria-label="Affiliations"><span id="affiliation-xiamen"><sup>1</sup> Xiamen University</span><span id="affiliation-fudan"><sup>2</sup> Fudan University</span></p>
     <nav class="resource-links" aria-label="Project resources">
-      <span class="resource-placeholder" role="link" aria-disabled="true" title="Paper — coming soon">[Paper]</span>
+      <a href="https://arxiv.org/abs/2611.20192">[Paper]</a>
       <a href="https://github.com/Fr0zenCrane/GlyphAtlas">[Code]</a>
       <a href="https://huggingface.co/Fr0zencr4nE/GlyphAtlas" aria-label="Download GlyphAtlas model weights">[Model]</a>
       <a href="https://huggingface.co/datasets/Fr0zencr4nE/GlyphAtlas-Data-1.5M">[Dataset]</a>
+      <a href="#citation">[Citation]</a>
     </nav>
     <figure class="teaser">
       <a class="figure-link" href="assets/teaser.png" data-figure="teaser" data-caption="GlyphAtlas renders stroke-accurate text that blends seamlessly into real scenes." aria-label="Enlarge the GlyphAtlas teaser">
@@ -111,6 +122,26 @@
       <h3 class="subsection-title">Atlas Budgeting</h3>
       <p>Randomized cell heights make the model work across atlas resolutions. A square character cell uses <strong>16 tokens at 64 pixels</strong> and <strong>9 tokens at 48 pixels</strong>, a 43.75% reduction. The allocator instead assigns more detail to small scene glyphs while managing the total sequence length.</p>
       <div class="table-scroll" role="region" aria-label="Atlas token budget and accuracy" tabindex="0"><table id="table-budget"><caption><span class="table-number">Table 5</span><span class="table-caption-text">Atlas budget on AnyText-benchmark</span></caption><thead><tr><th rowspan="3" scope="col">Inference</th><th colspan="4" scope="colgroup" class="group-start">English</th><th colspan="4" scope="colgroup" class="group-start">Chinese</th></tr><tr><th colspan="2" scope="colgroup" class="group-start">Atlas length</th><th colspan="2" scope="colgroup" class="group-start">ACC ↑</th><th colspan="2" scope="colgroup" class="group-start">Atlas length</th><th colspan="2" scope="colgroup" class="group-start">ACC ↑</th></tr><tr><th scope="col" class="group-start">Mean</th><th scope="col">Max</th><th scope="col" class="group-start">Fixed</th><th scope="col">Random</th><th scope="col" class="group-start">Mean</th><th scope="col">Max</th><th scope="col" class="group-start">Fixed</th><th scope="col">Random</th></tr></thead><tbody><tr><th scope="row">64 px</th><td class="group-start">291</td><td>784</td><td class="group-start">88.48</td><td>88.68</td><td class="group-start">175</td><td>1,200</td><td class="group-start">77.77</td><td>77.92</td></tr><tr><th scope="row">48 px</th><td class="group-start">164</td><td>441</td><td class="group-start">87.91</td><td>88.10</td><td class="group-start">99</td><td>675</td><td class="group-start">72.56</td><td>74.81</td></tr><tr><th scope="row">Alloc.</th><td class="group-start">267</td><td>512</td><td class="group-start">88.15</td><td>88.22</td><td class="group-start">194</td><td>794</td><td class="group-start">75.48</td><td>76.86</td></tr></tbody></table></div><p class="table-note">Fixed and Random refer to training with a fixed atlas height or randomized cell heights. Alloc. assigns cell resolutions according to the token budget and glyph size in the scene.</p>
+    </section>
+
+    <section class="content citation" id="citation" aria-labelledby="citation-title">
+      <h2 id="citation-title">Citation</h2>
+      <p>If you use GlyphAtlas in your research, please cite <a href="https://arxiv.org/abs/2611.20192">our paper</a>:</p>
+      <div class="citation-toolbar">
+        <a href="https://arxiv.org/abs/2611.20192">arXiv:2611.20192</a>
+        <button type="button" id="copy-citation">Copy BibTeX</button>
+        <span id="citation-status" role="status" aria-live="polite"></span>
+      </div>
+      <pre><code id="citation-bibtex">@misc{qin2026glyphatlasdisentanglingstrokelayout,
+      title={GlyphAtlas: Disentangling Stroke Detail from Layout for Scene Text Synthesis},
+      author={Luozheng Qin and Changhai Zhou and Yiyi Zhou},
+      year={2026},
+      eprint={2611.20192},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2611.20192},
+}
+</code></pre>
     </section>
   </main>
 

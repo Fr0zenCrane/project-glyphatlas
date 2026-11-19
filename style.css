@@ -141,3 +141,10 @@ body.dialog-open { overflow: hidden; }
   .dialog-image img { min-width: 900px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+.citation-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; font-size: 14px; }
+#copy-citation { padding: 7px 13px; border: 1px solid var(--link); border-radius: 5px; color: var(--link); background: #fff; font-size: 14px; }
+#copy-citation:hover { background: #eef3f9; }
+#citation-status { color: var(--muted); font-size: 13px; }
+.citation pre { margin: 18px 0 0; padding: 20px; border: 1px solid var(--line); border-radius: 7px; background: var(--soft); white-space: pre-wrap; overflow-wrap: anywhere; }
+.citation code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 13px; line-height: 1.65; }

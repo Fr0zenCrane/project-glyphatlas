@@ -28,3 +28,19 @@ dialog.addEventListener('close', () => {
   document.body.classList.remove('dialog-open');
   opener?.focus({ preventScroll: true });
 });
+
+const citation = document.getElementById('citation-bibtex');
+const citationStatus = document.getElementById('citation-status');
+document.getElementById('copy-citation').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(citation.textContent);
+    citationStatus.textContent = 'Copied!';
+  } catch {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(citation);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    citationStatus.textContent = 'BibTeX selected. Press Ctrl+C or ⌘C to copy.';
+  }
+});
